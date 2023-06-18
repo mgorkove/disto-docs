@@ -27,25 +27,45 @@ Once you’ve created your account, you can create a project to start using Dist
 
 ## Connect Disto to Sentry
 
-<Info>
-  **Prerequisite** You must have a Sentry Business or Enterprise plan.
-</Info>
-
 Connect Disto to Sentry so that Disto can receive information about your Sentry errors.
 
 1. Create an internal Sentry integration to allow Disto’s webhook to receive your error events. Go to the Sentry console. Click on “Settings” -> “Developer Settings”
 
 <img height="70" src="/images/sentry_settings.png" />
 
-2. Click on “Create New Integration” -> “Internal Integration”. Fill out the fields exactly as in the below screenshots. Click “Save Changes”.
+2. Click on “Create New Integration” -> “Internal Integration”. Follow the instructions below according to which Sentry plan you have.
 
-<img height="70" src="/images/create_internal_integration_1.png" />
+<AccordionGroup>
+  <Accordion title="I have a Sentry Business or Enterprise plan">
+    Fill out the fields exactly as in the below screenshots. Click “Save
+    Changes”.
 
-<img height="70" src="/images/create_internal_integration_2.png" />
+    <img height="70" src="/images/create_internal_integration_1.png" />
+    <img height="70" src="/images/create_internal_integration_2.png" />
 
-3. Add a tag with your Disto project id in your Sentry.init() method. The screen that you see after you click “Create Project” should contain your Disto project id.
+  </Accordion>
+  <Accordion title="I have a Sentry Developer or Team plan">
+    Fill out the fields exactly as in the below screenshots. Click “Save
+    Changes”.
 
-<img height="70" src="/images/add_tag_sentry.png" />
+    <img height="70" src="/images/sentry-internal-integration-instructions1.png" />
+    <img height="70" src="/images/sentry-internal-integration-instructions2.png" />
+
+    After you click "Save Changes", a token should appear.
+
+    <img height="70" src="/images/sentry_copy_token_instructions.png" />
+
+    Copy this token, paste it into the box on the Disto "Connect Logs" page, and click "Add Token" to add this token to your Disto account. This will allow Disto to access your Sentry error information.
+
+    <img height="70" src="/images/add_token_box.png" />
+
+  </Accordion>
+</AccordionGroup>
+
+3. To associate your Disto project with your Sentry project, copy your Sentry DSN into the box on the Disto "Connect Logs" page and click "Add DSN".
+   [How to find your Sentry DSN](/help)
+
+<img height="70" src="/images/add_sentry_dsn.png" />
 
 You are now done with setup! Disto will automatically receive error events from Sentry and create fixes.
 
