@@ -1,0 +1,24 @@
+---
+title: "Authentication"
+description: ""
+---
+
+## Auth Tokens
+
+Authentication tokens are passed using an auth header, and are used to authenticate as a user account with the API. In our documentation, we have placeholders that appear between angled brackets, which you will need to replace with your authentication token in order to use the API call effectively.
+
+For example, when the documentation says:
+
+```bash
+curl 'https://<your_disto_url>/api/v1/issues/123e4567-e89b-12d3-a456-426614174000/' \
+-H 'Authorization: Bearer <token>'
+```
+
+If your authentication token is 1a2b3c, then the command should be:
+
+```bash
+curl 'https://<your_disto_url>/api/v1/issues/123e4567-e89b-12d3-a456-426614174000/' \
+-H 'Authorization: Bearer 1a2b3c'
+```
+
+You can create authentication tokens within Disto by going to Account > Security Credentials > Create New Auth Token.

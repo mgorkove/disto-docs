@@ -25,11 +25,40 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "integrations"]
+      "pages": [
+        "introduction",
+        "self_hosting",
+        "create_account",
+        "integrations"
+      ]
     },
     {
       "group": "Using Disto",
       "pages": ["projects", "issues", "help"]
+    },
+    {
+      "group": "API Reference",
+      "pages": ["api-reference/authentication"]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        {
+          "group": "Projects",
+          "pages": [
+            "api-reference/endpoints/projects/list_projects",
+            "api-reference/endpoints/projects/get_project"
+          ]
+        },
+        {
+          "group": "Issues",
+          "pages": [
+            "api-reference/endpoints/issues/create_issue",
+            "api-reference/endpoints/issues/get_issue",
+            "api-reference/endpoints/issues/delete_issue"
+          ]
+        }
+      ]
     }
   ],
   "backgroundImage": "/background.png"

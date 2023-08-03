@@ -1,47 +1,50 @@
 ---
 title: "Integrations"
-description: "Choose what data sources you want to integrate with Disto."
+description: "You can follow the steps below to connect Disto with your systems. When Disto is solving an issue, it will pull relevant data from these via API."
 ---
 
-## What are Disto integrations?
+## Integrations with Common Tools
 
-Here, you will see all the data sources you can choose to securely stream information to Disto. 
-This will allow Disto to analyse data from these sources.
+Disto currently integrates with the following common tools:
+
+1. Github
+2. Kubernetes
+3. Prometheus
+4. Sentry
+
+The following integrations will be added soon:
+
+1. OpenSearch
+2. Datadog
+3. NewRelic
+4. SonarQube
+
+If there are common tools that you would like to connect that are not listed above, please let us know and we will add integrations for those.
+
+To connect one of these tools to Disto, click "Install" under the name of the tool. Then, follow the steps below for that tool. The process is very simple - it should take a few clicks and around 5 minutes per tool to set up the integration.
 
 <img height="70" src="/images/integrations_page.png" />
 
 ## GitHub
 
-Disto will redirect you to GitHub where you can install the Disto app to your selected repos.  
+Disto will redirect you to GitHub where you can install the Disto app to your selected repos.
 
 <img height="70" src="/images/add_github_integration.png" />
 
-## Custom Integration
-
-To integrate with your own custom tools, Click on "+ Add Custom Integration" and fill out the indicated fields. These include:
-1. URL, which Disto will make a request to when retrieving data
-2. Authentication and Autherization Header to use when making the outgoing webhook request
-3. Custom HTTP Headers to add to the request
-4. Endpoints of the tool you want Disto to have access to
-
-<img height="70" src="/images/add_custom_integration.png" />
-
 ## Kubernetes
 
-To integrate with Kubernetes, run the command provided by Disto to create a read-only kubeconfig, and upload this securely to Disto. 
+To integrate with Kubernetes, run the command provided by Disto to create a read-only kubeconfig, and upload this securely to Disto. This will allow Disto to run read-only kubectl commands to get data from your cluster.
 
 <img height="70" src="/images/add_kubernetes_integration.png" />
 
 ## Prometheus
 
-To integrate with Prometheus, fill out the indicated fields. These include:
-1. Prometheus Server URL, which Disto will make a request to when retrieving data
-2. Authentication and Autherization Header to use when making the outgoing webhook request
-3. Custom HTTP Headers to add to the request
+To integrate with Prometheus, fill out the indicated fields.
 
 <img height="70" src="/images/add_prometheus_integration.png" />
 
 ## Sentry
+
 Connect Disto to Sentry so that Disto can receive information about your Sentry errors.
 
 1. Create an internal Sentry integration to allow Disto’s webhook to receive your error events. Go to the Sentry console. Click on “Settings” -> “Developer Settings”
@@ -75,5 +78,25 @@ Connect Disto to Sentry so that Disto can receive information about your Sentry 
   </Accordion>
 </AccordionGroup>
 
+## Custom Integrations
 
+We will build custom integrations for your internal tools, and have them ready by the time you would like to begin a POC. We want to minimize the engineering effort required from your team. We would need documentation on your internal tools and any APIs they have.
 
+If you would like to add an integration yourself, you can do so by following the steps below.
+
+Click on "+ Add Custom Integration" and fill out the indicated fields. These will give Disto information about what data can be retrieved from your tools and how to retrieve it.
+
+1. Name: Display name of the integration
+2. URL: The destination URL Disto will make a request to when retrieving data from this tool.
+3. Headers: Custom HTTP Headers to add to the request
+4. Auth: Basic auth credentials or authorization header to use when making the request.
+5. Add each endpoint of the tool you want Disto to have access to and the following information about it:
+   1. endpoint (e.g. /api/v1/logs)
+   2. description
+   3. parameters
+   4. response schema
+   5. error responses
+
+<img height="70" src="/images/add_custom_integration.png" />
+
+If the fields above are not appropriate for a tool that you would like to integrate, please let us know and we will add functionality to enable integration with that tool.

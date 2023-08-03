@@ -1,0 +1,38 @@
+---
+title: "Delete Issue"
+api: "DELETE https://your_disto_url/api/v1/issues/{issueId}/"
+description: "This endpoint deletes an existing issue."
+---
+
+### Body
+
+<ParamField path="issueId" type="string">
+  This is the unique identifier for the issue that you want to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  A message indicating the result of the delete operation.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl https://
+<your_disto_url>/api/v1/issues/{issueId}/ \
+ -H 'Authorization: Bearer <auth_token>' \
+ -X DELETE
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "message": "Issue successfully deleted."
+}
+```
+
+</ResponseExample>

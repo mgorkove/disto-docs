@@ -1,0 +1,57 @@
+---
+title: "Get All Projects"
+api: "GET https://your_disto_url/api/v1/projects/"
+description: "This endpoint retrieves all projects for your user account."
+---
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the unique identifier for the project.
+</ResponseField>
+<ResponseField name="name" type="string">
+  This is the name of the project.
+</ResponseField>
+<ResponseField name="issueIds" type="array">
+  This is an array of issue IDs associated with the project.
+</ResponseField>
+<ResponseField name="createdAt" type="string">
+  This is the date and time when the project was created.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl 'https://<your_disto_url>/api/v1/projects/' \
+-H 'Authorization: Bearer <token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+[
+  {
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "name": "Signal-iOS",
+    "issueIds": [
+      "123e4567-e89b-12d3-a456-426614174001",
+      "123e4567-e89b-12d3-a456-426614174002",
+      "123e4567-e89b-12d3-a456-426614174003"
+    ],
+    "createdAt": "2023-08-01T14:30:00Z"
+  },
+  {
+    "id": "123e4567-e89b-12d3-a456-426614174004",
+    "name": "Signal-Android",
+    "issueIds": [
+      "123e4567-e89b-12d3-a456-426614174005",
+      "123e4567-e89b-12d3-a456-426614174006"
+    ],
+    "createdAt": "2023-08-02T14:30:00Z"
+  }
+]
+```
+
+</ResponseExample>

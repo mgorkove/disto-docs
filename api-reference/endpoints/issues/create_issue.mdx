@@ -1,0 +1,46 @@
+---
+title: "Create Issue"
+api: "POST https://your_disto_url/api/v1/issues/"
+description: "This endpoint creates a new issue. Because the LLM might take a few minutes to run, the process is asynchronous. Once the issue is created, a webhook will be sent to the provided callback URL."
+---
+
+### Body
+
+<ParamField body="data" type="string">
+  This is a description of the issue along with any other relevant information
+  such as error messages, logs, etc.
+</ParamField>
+<ParamField body="projectId" type="string">
+  This is the unique identifier for the project that this issue belongs to.
+</ParamField>
+<ParamField body="callbackUrl" type="string">
+  This is the URL where the webhook will be sent once the issue is created.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  A message indicating that the issue creation is in progress and a webhook will be sent upon completion.
+</ResponseField>
+<RequestExample>
+
+```bash Example Request
+curl https://<your_disto_url>/api/v1/issues/ \
+ -H 'Authorization: Bearer <token>' \
+ -H 'Content-Type: application/json' \
+ --data-raw '{
+     "data": "Crash rate is > 0.2% for 1 hour on app 'Signal', version '6.35.0', OS 'iOS'",
+    "projectId": "123e4567-e89b-12d3-a456-426614174001",
+    "callbackUrl": "https://app.mycompany.com/callback"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json Response
+{
+  "message": "Disto is working on a fix. A webhook will be sent to the provided callback URL upon completion."
+}
+```
+</ResponseExample>
