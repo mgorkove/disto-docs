@@ -1,0 +1,188 @@
+---
+title: "Get Issue"
+description: "This endpoint retrieves a specific issue by its ID."
+---
+
+### Body
+
+<ParamField path="issueId" type="string">
+  This is the unique identifier for the issue.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  This is the unique identifier for the issue.
+</ResponseField>
+<ResponseField name="projectId" type="string">
+  This is the unique identifier for the project that this issue belongs to.
+</ResponseField>
+<ResponseField name="problem" type="string">
+  This is the description of the problem.
+</ResponseField>
+<ResponseField name="rootCause" type="string">
+  This is the root cause of the problem.
+</ResponseField>
+<ResponseField name="stepsToReproduce" type="array">
+The steps to reproduce the problem
+
+<Expandable title="Toggle object">
+<ResponseField name="stepNumber" type="integer">
+  This is the number of the step.
+</ResponseField>
+<ResponseField name="description" type="string">
+  This is the description of the step.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseField name="solutionSteps" type="array">
+The steps to solve the problem
+
+<Expandable title="Toggle object">
+<ResponseField name="stepNumber" type="integer">
+  This is the number of the step.
+</ResponseField>
+<ResponseField name="description" type="string">
+  This is the description of the step.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseField name="diff" type="object">
+The diff showing the code changes made to solve the problem
+
+<Expandable title="Toggle object">
+<ResponseField name="files" type="array">
+The files that were changed
+
+<Expandable title="Toggle object">
+<ResponseField name="fileName" type="string">
+  This is the name of the file.
+</ResponseField>
+<ResponseField name="changes" type="array">
+The changes made to the file
+
+<Expandable title="Toggle object">
+<ResponseField name="type" type="string">
+  This is the type of change (add, delete, modify).
+</ResponseField>
+<ResponseField name="lines" type="array">
+The lines that were changed
+
+<Expandable title="Toggle object">
+<ResponseField name="lineNumber" type="integer">
+  This is the number of the line.
+</ResponseField>
+<ResponseField name="oldCode" type="string">
+  This is the old code on the line.
+</ResponseField>
+<ResponseField name="newCode" type="string">
+  This is the new code on the line.
+</ResponseField>
+</Expandable>
+</ResponseField>
+</Expandable>
+</ResponseField>
+</Expandable>
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseField name="investigationSteps" type="array">
+The investigation steps taken to investigate the problem
+
+<Expandable title="Toggle object">
+<ResponseField name="action" type="string">
+  This is the action taken in this investigation step.
+</ResponseField>
+<ResponseField name="result" type="string">
+  This is the result of the action.
+</ResponseField>
+<ResponseField name="analysis" type="string">
+  This is the analysis of the result.
+</ResponseField>
+</Expandable>
+</ResponseField>
+<ResponseField name="createdAt" type="string">
+  This is the date and time when the issue was created.
+</ResponseField>
+<RequestExample>
+
+```bash Example Request
+curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89b-12d3-a456-426614174000' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token {token}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+````json Response
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "projectId": "123e4567-e89b-12d3-a456-426614174001",
+  "problem": "App crashes on launch",
+  "rootCause": "Null pointer exception",
+  "stepsToReproduce": [
+    {
+      "stepNumber": 1,
+      "description": "Launch the iOS app on an iPhone 8 device running iOS version 12.4.1 and app version 6.35.0."
+    },
+    {
+      "stepNumber": 2,
+      "description": "Wait for the splash screen to appear."
+    },
+    {
+      "stepNumber": 3,
+      "description": "Tap the 'continue' button."
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepNumber": 1,
+      "description": "Open the `OnboardingNavigationController.swift` file."
+    },
+    {
+      "stepNumber": 2,
+      "description": "Go to line 16 and modify the `init(onboardingController:)` method as follows:\n\n```swift\noverride init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n    // Additional initialization code if needed\n}\n```\n\nThis change ensures that the `UINavigationController` is properly initialized with a root view controller."
+    },
+    {
+      "stepNumber": 3,
+      "description": "Save the file."
+    }
+  ],
+  "diff": {
+    "files": [
+      {
+        "fileName": "OnboardingNavigationController.swift",
+        "changes": [
+          {
+            "type": "modify",
+            "lines": [
+              {
+                "lineNumber": 16,
+                "oldCode": "init(onboardingController:)",
+                "newCode": "override init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n    // Additional initialization code if needed\n}"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "investigationSteps": [
+    {
+      "action": "Run app on iPhone 8 with iOS 12.4.1",
+      "result": "App crashes",
+      "analysis": "Crash log shows null pointer exception"
+    },
+    {
+      "action": "Review code",
+      "result": "Found potential null pointer in `OnboardingNavigationController.swift`",
+      "analysis": "The `UINavigationController` may not be properly initialized"
+    }
+  ],
+  "createdAt": "2023-08-02T14:30:00Z"
+}
+````
+
+</ResponseExample>

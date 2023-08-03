@@ -30,6 +30,31 @@
     {
       "group": "Using Disto",
       "pages": ["projects", "issues", "help"]
+    },
+    {
+      "group": "API Reference",
+      "pages": ["api-reference/authentication"]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        {
+          "group": "Projects",
+          "pages": [
+            "api-reference/endpoint/projects/list_projects",
+            "api-reference/endpoint/projects/get_project",
+            "api-reference/endpoint/projects/delete_project"
+          ]
+        },
+        {
+          "group": "Issues",
+          "pages": [
+            "api-reference/endpoint/issues/create_issue",
+            "api-reference/endpoint/issues/get_issue",
+            "api-reference/endpoint/issues/delete_issue"
+          ]
+        }
+      ]
     }
   ],
   "backgroundImage": "/background.png"
