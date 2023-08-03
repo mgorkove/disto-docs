@@ -1,0 +1,79 @@
+---
+title: "Integrations"
+description: "Choose what data sources you want to integrate with Disto."
+---
+
+## What are Disto integrations?
+
+Here, you will see all the data sources you can choose to securely stream information to Disto. 
+This will allow Disto to analyse data from these sources.
+
+<img height="70" src="/images/integrations_page.png" />
+
+## GitHub
+
+Disto will redirect you to GitHub where you can install the Disto app to your selected repos.  
+
+<img height="70" src="/images/add_github_integration.png" />
+
+## Custom Integration
+
+To integrate with your own custom tools, Click on "+ Add Custom Integration" and fill out the indicated fields. These include:
+1. URL, which Disto will make a request to when retrieving data
+2. Authentication and Autherization Header to use when making the outgoing webhook request
+3. Custom HTTP Headers to add to the request
+4. Endpoints of the tool you want Disto to have access to
+
+<img height="70" src="/images/add_custom_integration.png" />
+
+## Kubernetes
+
+To integrate with Kubernetes, run the command provided by Disto to create a read-only kubeconfig, and upload this securely to Disto. 
+
+<img height="70" src="/images/add_kubernetes_integration.png" />
+
+## Prometheus
+
+To integrate with Prometheus, fill out the indicated fields. These include:
+1. Prometheus Server URL, which Disto will make a request to when retrieving data
+2. Authentication and Autherization Header to use when making the outgoing webhook request
+3. Custom HTTP Headers to add to the request
+
+<img height="70" src="/images/add_prometheus_integration.png" />
+
+## Sentry
+Connect Disto to Sentry so that Disto can receive information about your Sentry errors.
+
+1. Create an internal Sentry integration to allow Disto’s webhook to receive your error events. Go to the Sentry console. Click on “Settings” -> “Developer Settings”
+
+<img height="70" src="/images/sentry_settings.png" />
+
+2. Click on “Create New Integration” -> “Internal Integration”. Follow the instructions below according to which Sentry plan you have.
+
+<AccordionGroup>
+  <Accordion title="I have a Sentry Business or Enterprise plan">
+    Fill out the fields exactly as in the below screenshots. Click “Save
+    Changes”.
+
+    <img height="70" src="/images/create_internal_integration_1.png" />
+    <img height="70" src="/images/create_internal_integration_2.png" />
+
+  </Accordion>
+  <Accordion title="I have a Sentry Developer or Team plan">
+    Fill out the fields exactly as in the below screenshots. Click “Save
+    Changes”.
+
+    <img height="70" src="/images/sentry-internal-integration-instructions1.png" />
+    <img height="70" src="/images/sentry-internal-integration-instructions2.png" />
+
+    After you click "Save Changes", a token should appear.
+
+    <img height="70" src="/images/sentry_copy_token_instructions.png" />
+
+    Copy this token into Disto and click "Add Token" to add this token to your Disto account. This will allow Disto to access your Sentry error information.
+
+  </Accordion>
+</AccordionGroup>
+
+
+

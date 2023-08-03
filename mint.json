@@ -25,7 +25,11 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "using_disto", "help"]
+      "pages": ["introduction", "quickstart", "integrations"]
+    },
+    {
+      "group": "Using Disto",
+      "pages": ["projects", "issues", "help"]
     }
   ],
   "backgroundImage": "/background.png"
