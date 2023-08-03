@@ -16,6 +16,11 @@ Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview th
 npm i -g mintlify
 ```
 
+Note: you might have to manually set the version of node using nvm:
+```
+nvm use v19.1.0
+```
+
 Run the following command at the root of your documentation (where mint.json is)
 
 ```
