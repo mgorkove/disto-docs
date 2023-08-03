@@ -1,27 +1,29 @@
 ---
 title: "Viewing and Creating Issues"
-description: "How to see the fixes that Disto creates."
+description: ""
 ---
 
-## View automatically-created fixes
+An issue is any problem that Disto solves. This could be a crash in your application, or a performance issue, or something else that triggers an alert.
 
-Disto automatically creates a pull request with a fix whenever an error is detected in your application by Sentry. Follow the steps below to view these fixes.
+If Disto receives an alert via webhook, it will automatically start solving the issue, and you can view the results by following the steps below. You can also manually create an issue.
 
-1. Go to the [Projects page](https://app.distoai.com/projects) and click on your project.
+## View Issues
+
+1. Click on "Projects" in the navigation bar, and click on your project.
 
 <img height="70" src="/images/projects_page.png" />
 
-2. Click on the issue. Disto shows the root cause, solution, and link to pull request with a fix.
+2. Click on the issue. Disto shows the root cause, solution, and, if relevant, specific code changes to solve the issue and steps to reproduce the issue.
 
 <img height="70" src="/images/issues_page.png" />
 
+3. If you click "Show Investigation Steps", you can see the steps that Disto took to investigate the issue, each of which include what command, query, or API call it performed, the result, and analysis of the result.
+
+<img height="70" src="/images/investigation_steps.png" />
+
 ## Manually add an issue
 
-1. Click on your project, then click on "Add Issue".
-
-<img height="70" src="/images/add_issue.png" />
-
-2. Add any information about the error, including the error message and relevant logs. Optionally, add the steps to reproduce the issue, and any additional information.
+1. Click on your project, then click on "Add Issue". Add a description of the issue and any relevant information you have about it, including any alerts, error messages, logs, etc.
    Click Submit, and wait for Disto to process the issue and add it to your project.
 
-<img height="70" src="/images/add_issue_filled.png" />
+<img height="70" src="/images/add_issue.png" />

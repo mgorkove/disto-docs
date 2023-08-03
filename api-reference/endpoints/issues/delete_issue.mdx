@@ -1,6 +1,6 @@
 ---
 title: "Delete Issue"
-#api: "DELETE http://{your_base_url}/api/v1/issues/{issueId}"
+api: "DELETE https://your_disto_url/api/v1/issues/{issueId}/"
 description: "This endpoint deletes an existing issue."
 ---
 
@@ -19,9 +19,10 @@ description: "This endpoint deletes an existing issue."
 <RequestExample>
 
 ```bash Example Request
-curl --location --request DELETE 'http://
-{your_base_url}/api/v1/issues/123e4567-e89b-12d3-a456-426614174000' \ --header
-'Authorization: Bearer <token>'
+curl https://
+<your_disto_url>/api/v1/issues/{issueId}/ \
+ -H 'Authorization: Bearer <auth_token>' \
+ -X DELETE
 ```
 
 </RequestExample>

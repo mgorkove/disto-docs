@@ -1,13 +1,14 @@
 ---
 title: "Create Issue"
-api: "POST http://your_base_url/api/v1/issues"
+api: "POST https://your_disto_url/api/v1/issues/"
 description: "This endpoint creates a new issue. Because the LLM might take a few minutes to run, the process is asynchronous. Once the issue is created, a webhook will be sent to the provided callback URL."
 ---
 
 ### Body
 
 <ParamField body="data" type="string">
-  This is a brief description of the issue.
+  This is a description of the issue along with any other relevant information
+  such as error messages, logs, etc.
 </ParamField>
 <ParamField body="projectId" type="string">
   This is the unique identifier for the project that this issue belongs to.
@@ -24,13 +25,13 @@ description: "This endpoint creates a new issue. Because the LLM might take a fe
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'http://{your_base_url}/api/v1/issues' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer <token>' \
---data-raw '{
-    "data": "Crash rate is > 0.2% for 1 hour on app 'Signal', version '6.35.0', OS 'iOS'",
+curl https://<your_disto_url>/api/v1/issues/ \
+ -H 'Authorization: Bearer <token>' \
+ -H 'Content-Type: application/json' \
+ --data-raw '{
+     "data": "Crash rate is > 0.2% for 1 hour on app 'Signal', version '6.35.0', OS 'iOS'",
     "projectId": "123e4567-e89b-12d3-a456-426614174001",
-    "callbackUrl": "http://{your_callback_url}"
+    "callbackUrl": "https://app.mycompany.com/callback"
 }'
 ```
 

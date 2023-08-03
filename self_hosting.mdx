@@ -1,0 +1,24 @@
+---
+title: Self-Hosting Disto
+description: "Run Disto on your own infrastructure"
+---
+
+You can run Disto on your own infrastructure. This means that your data does not leave your environment, and you are running a dedicated LLM that is private to your company.
+
+## Model
+
+Disto uses [StarChat](https://huggingface.co/HuggingFaceH4/starchat-beta) as its underlying LLM. StarChat is a fine-tuned version of [StarCoder](https://huggingface.co/bigcode/starcoderbase), a state-of-the-art open-source LLM trained on code.
+
+## Hardware Requirements
+
+Disto runs in a Kubernetes cluster. For a POC, it requires 2 nodes. One node runs the LLM, and the other runs the rest of the services that Disto is composed of. For a production deployment, we will work with you to size the cluster based on your needs.
+
+## Deployment
+
+We will provide a script to you that will create the Kubernetes cluster and deploy Disto. We support deployment on AWS, GCP, Azure, and on-prem hardware or a different cloud provider if requested.
+
+After Disto is deployed, its frontend service will be accessible via URL. Then you can access the Disto UI.
+
+## Security
+
+Since Disto is deployed on your own infrastructure, none of your data ever leaves your environment. We will work with your team to ensure we meet any other security requirements you have.

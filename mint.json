@@ -25,7 +25,12 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "integrations"]
+      "pages": [
+        "introduction",
+        "self_hosting",
+        "create_account",
+        "integrations"
+      ]
     },
     {
       "group": "Using Disto",
@@ -41,17 +46,16 @@
         {
           "group": "Projects",
           "pages": [
-            "api-reference/endpoint/projects/list_projects",
-            "api-reference/endpoint/projects/get_project",
-            "api-reference/endpoint/projects/delete_project"
+            "api-reference/endpoints/projects/list_projects",
+            "api-reference/endpoints/projects/get_project"
           ]
         },
         {
           "group": "Issues",
           "pages": [
-            "api-reference/endpoint/issues/create_issue",
-            "api-reference/endpoint/issues/get_issue",
-            "api-reference/endpoint/issues/delete_issue"
+            "api-reference/endpoints/issues/create_issue",
+            "api-reference/endpoints/issues/get_issue",
+            "api-reference/endpoints/issues/delete_issue"
           ]
         }
       ]

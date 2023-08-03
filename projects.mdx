@@ -1,25 +1,28 @@
 ---
 title: "Creating Projects"
-description: "Disto is project-based and allows you to customize what data sources you want to track together."
+description: ""
 ---
+
+Disto is organized by projects. A project corresponds to one application and the systems that Disto needs to retrieve information from when solving an issue related to it.
 
 ## Create a Project
 
-Once you’ve set up your integrations, you can create a project. Disto organizes issues into projects based on the data sources and alerts you choose when customizing your project. 
+Once you’ve set up your integrations, you can create a project.
 
-1. Go to the [Projects page](https://app.distoai.com/projects). Click “Create Project”
+1. Click on "Projects" in the navigation bar. Click “Create Project”
 
 <img height="70" src="/images/create_project.png" />
 
-2. All of your installed integrations will appear here. You can select which of these you want Disto to pull information from in this project. 
+2. All of your installed integrations will appear here. You can select which of these you want Disto to use when solving issues related to this project.
 
 <img height="70" src="/images/project_form.png" />
 
-3. Let's say that you want to track a Kubernetes cluster along with the code for a particular service. Selecting Kubernetes and GitHub allows you to select the relevant repo(s) and the read only kubeconfig so that Disto can pull information about the pods. 
+3. For example, let's say that your application is running in a Kubernetes cluster. Selecting GitHub allows you to select the relevant repo(s), and selecting Kubernetes allows you to select the read only kubeconfig so that Disto can retrieve information about Kubernetes resources via read-only kubectl commands.
 
 <img height="70" src="/images/project_form_2.png" />
 
-You can also set up alerting so that this Disto project is automatically notified of any issues and can start solving them immediately. 
+4. If you have alerts set up in another tool, Disto can receive an event via webhook whenever an alert is triggered, and automatically start investigating the issue. If you are using a common tool that Disto has an integration for, you can follow the prompts in the Disto UI to set up a webhook when you're creating a project. If you are using a custom tool, the tool must be configured to send HTTP POST requests to the endpoint documented [here](api-reference/endpoints/issues/create_issue).
 
-4. After clicking the Create Project button, your project is ready and will start receiving alerts and solving issues. 
+5. Along with displaying the output in the UI when it's finished solving an issue, Disto can also send its output in JSON format (the response format [here](api-reference/endpoints/issues/get_issue)) to other tools via webhook. You can add your webhook endpoint via a form field when you are creating a project and Disto will send HTTP POST requests to it.
 
+6. After clicking the Create Project button, your project is ready and will start receiving alerts and solving issues.

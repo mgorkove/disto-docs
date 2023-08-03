@@ -1,6 +1,7 @@
 ---
 title: "Get All Projects"
-description: "This endpoint retrieves all projects."
+api: "GET https://your_disto_url/api/v1/projects/"
+description: "This endpoint retrieves all projects for your user account."
 ---
 
 ### Response
@@ -21,9 +22,8 @@ description: "This endpoint retrieves all projects."
 <RequestExample>
 
 ```bash Example Request
-curl --location --request GET 'https://{your_disto_url}/api/v1/projects' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer {token}'
+curl 'https://<your_disto_url>/api/v1/projects/' \
+-H 'Authorization: Bearer <token>'
 ```
 
 </RequestExample>

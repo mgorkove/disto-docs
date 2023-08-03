@@ -1,5 +1,6 @@
 ---
 title: "Get Issue"
+api: "GET https://your_disto_url/api/v1/issues/{issueId}/"
 description: "This endpoint retrieves a specific issue by its ID."
 ---
 
@@ -107,9 +108,8 @@ The investigation steps taken to investigate the problem
 <RequestExample>
 
 ```bash Example Request
-curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89b-12d3-a456-426614174000' \
---header 'Content-Type: application/json' \
---header 'Authorization: Token {token}'
+curl 'https://<your_disto_url>/api/v1/issues/{issueId}/' \
+-H 'Authorization: Bearer <token>'
 ```
 
 </RequestExample>
@@ -120,8 +120,8 @@ curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89
 {
   "id": "123e4567-e89b-12d3-a456-426614174000",
   "projectId": "123e4567-e89b-12d3-a456-426614174001",
-  "problem": "App crashes on launch",
-  "rootCause": "Null pointer exception",
+  "problem": "crash rate is > 0.2% for 1 hour on app 'Signal', version '6.35.0', OS 'iOS'",
+  "rootCause": "You need to call a designated initializer of the superclass. The designated initializers for UINavigationController are init(nibName:bundle:) and init(rootViewController:). In your code, you're calling super.init(), which is not a designated initializer for UINavigationController.",
   "stepsToReproduce": [
     {
       "stepNumber": 1,
@@ -143,7 +143,7 @@ curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89
     },
     {
       "stepNumber": 2,
-      "description": "Go to line 16 and modify the `init(onboardingController:)` method as follows:\n\n```swift\noverride init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n    // Additional initialization code if needed\n}\n```\n\nThis change ensures that the `UINavigationController` is properly initialized with a root view controller."
+      "description": "Go to line 16 and modify the `init(onboardingController:)` method as follows:\n\n```swift\noverride init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n }\n```\n\nThis change ensures that the `UINavigationController` is properly initialized with a root view controller."
     },
     {
       "stepNumber": 3,
@@ -161,7 +161,7 @@ curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89
               {
                 "lineNumber": 16,
                 "oldCode": "init(onboardingController:)",
-                "newCode": "override init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n    // Additional initialization code if needed\n}"
+                "newCode": "override init(rootViewController: UIViewController) {\n    super.init(rootViewController: rootViewController)\n}"
               }
             ]
           }
@@ -171,14 +171,31 @@ curl --location --request GET 'http://{your_base_url}/api/v1/issues/123e4567-e89
   },
   "investigationSteps": [
     {
-      "action": "Run app on iPhone 8 with iOS 12.4.1",
-      "result": "App crashes",
-      "analysis": "Crash log shows null pointer exception"
-    },
-    {
-      "action": "Review code",
-      "result": "Found potential null pointer in `OnboardingNavigationController.swift`",
-      "analysis": "The `UINavigationController` may not be properly initialized"
+      "action": "SELECT latest(stacktrace) FROM MobileCrash WHERE appName = 'iOS App' AND deviceModel = 'iPhone 8' AND deviceOSVersion = '12.4.1' AND appVersion = '6.35.0' SINCE 1 hour AGO",
+      "result": "NSInvalidArgumentException: -[UINavigationController init]: unrecognized selector sent to instance 0x7fb4ac40a200
+at [OnboardingNavigationController init(onboardingController:)](OnboardingController.swift:16)
+at [OnboardingController nextViewController(milestone:)]: (OnboardingController.swift:70)
+at [OnboardingController showNextMilestone](OnboardingController.swift:60)
+at [OnboardingController startOnboarding](OnboardingController.swift:50)
+at [AppDelegate application(didFinishLaunchingWithOptions:)](AppDelegate.swift:200)
+at [UIApplication _handleDelegateCallbacksWithOptions(isSuspended:restoreState:)]
+at [UIApplication _callInitializationDelegatesForMainScene(transitionContext:)]
+at [UIApplication _runWithMainScene(transitionContext:completion:)]
+at [UIApplication workspaceDidEndTransaction]
+at [FBSSerialQueue _performNext]
+at [FBSSerialQueue _performNextFromRunLoopSource]
+at [CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__]
+at [__CFRunLoopDoSources0]
+at [__CFRunLoopRun]
+at [CFRunLoopRunSpecific]
+at [UIApplication _run]
+at [UIApplication _run]
+at [UIApplication main]
+at [main](main.m:14)
+at [start]",
+      "analysis": "Based on the latest stacktrace retrieved from New Relic, the crash is caused by an unrecognized selector sent to an instance of `UINavigationController`. The crash occurs at line 16 of the `OnboardingController.swift` file, in the `init(onboardingController:)` method of the `OnboardingNavigationController` class.
+
+To further investigate the issue and identify the root cause, we need to retrieve the latest breadcrumbs for this crash. Breadcrumbs provide a trail of events leading up to the crash, which can help us understand the sequence of actions that triggered the crash."
     }
   ],
   "createdAt": "2023-08-02T14:30:00Z"

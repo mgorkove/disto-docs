@@ -1,5 +1,6 @@
 ---
 title: "Get Project"
+api: "GET https://your_disto_url/api/v1/projects/{projectId}/"
 description: "This endpoint retrieves a specific project by its ID."
 ---
 
@@ -26,9 +27,8 @@ description: "This endpoint retrieves a specific project by its ID."
 <RequestExample>
 
 ```bash Example Request
-curl --location --request GET 'http://{your_base_url}/api/v1/projects/123e4567-e89b-12d3-a456-426614174000' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer {token}'
+curl 'https://<your_disto_url>/api/v1/projects/{projectId}/' \
+-H 'Authorization: Bearer <token>'
 ```
 
 </RequestExample>
