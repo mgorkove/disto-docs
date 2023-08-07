@@ -27,18 +27,30 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "self_hosting",
+        {
+          "group": "Hosting Options",
+          "pages": [
+            "disto_web",
+            "self_hosting"
+          ]
+        },
         "create_account",
         "integrations"
       ]
     },
     {
       "group": "Using Disto",
-      "pages": ["projects", "issues", "help"]
+      "pages": [
+        "projects",
+        "issues",
+        "help"
+      ]
     },
     {
       "group": "API Reference",
-      "pages": ["api-reference/authentication"]
+      "pages": [
+        "api-reference/authentication"
+      ]
     },
     {
       "group": "Endpoints",
