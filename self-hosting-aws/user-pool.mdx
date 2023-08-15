@@ -1,0 +1,29 @@
+---
+title: Create an AWS Cognito User Pool
+description: ""
+---
+
+You will need to create an AWS Cognito User Pool to manage user accounts for your Disto instance. Navigate to Cognito in the AWS console and click Create User Pool to get started. Proceed through the setup instructions.
+
+1. Select Email under Cognito user pool sign-in options
+
+<img height="70" src="/images/user_pool_1.png" />
+
+2. Enable self-registration
+
+<img height="70" src="/images/user_pool_2.png" />
+
+3. Select Public client, name it Disto or another name you would like, and select "Don't generate a client secret".
+
+<img height="70" src="/images/user_pool_3.png" />
+
+Once the user pool is created, you can find the following values:
+
+1. **cognito-user-pool-id**
+   You can find this at the top of your user pool page.
+
+   <img height="70" src="/images/user_pool_5.png" />
+
+2. **cognito-client-id**
+   Navigate to App integration, and scroll to the bottom to find this.
+   <img height="70" src="/images/user_pool_4.png" />
