@@ -21,7 +21,11 @@ Once you’ve set up your integrations, you can create a project.
 
 <img height="70" src="/images/project_form_2.png" />
 
-4. If you have alerts set up in another tool, Disto can receive an event via webhook whenever an alert is triggered, and automatically start investigating the issue. If you are using a common tool that Disto has an integration for, you can follow the prompts in the Disto UI to set up a webhook when you're creating a project. If you are using a custom tool, the tool must be configured to send HTTP POST requests to the endpoint documented [here](api-reference/endpoints/issues/create_issue).
+4. If you have alerts set up in another tool, Disto can receive an event via webhook whenever an alert is triggered, and automatically start investigating the issue. If you are using a common tool that Disto has an integration for, you can follow the prompts in the Disto UI to set up a webhook when you're creating a project. 
+
+<img height="70" src="/images/webhook_instructions.png" />
+
+We currently support alerting from PagerDuty, StatusCake, Prometheus, and Opsgenie. If you are using a custom tool, the tool must be configured to send HTTP POST requests to the endpoint documented [here](api-reference/endpoints/issues/create_issue).
 
 5. Along with displaying the output in the UI when it's finished solving an issue, Disto can also send its output in JSON format (the response format [here](api-reference/endpoints/issues/get_issue)) to other tools via webhook. You can add your webhook endpoint via a form field when you are creating a project and Disto will send HTTP POST requests to it.
 
