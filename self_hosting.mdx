@@ -48,3 +48,14 @@ You can find this at the top of your user pool page.
 2. **AWS_COGNITO_CLIENT_ID**
 Navigate to App integration, and scroll to the bottom to find this.
 <img height="70" src="/images/user_pool_4.png" />
+
+## S3 Bucket
+
+If you are self hosting, you will also need to create an Amazon S3 Bucket. Navigate to S3 in the AWS console and click Create Bucket to get started. 
+Name your bucket, and select your region and security settings. 
+
+<img height="70" src="/images/s3_bucket.png" />
+
+Once the bucket is created, you will need to add the following environment variable. 
+1. **S3_BUCKET_NAME**
+Set this to the name of the bucket you just created
