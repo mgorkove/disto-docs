@@ -10,7 +10,13 @@ Disto currently integrates with the following common tools:
 1. Github
 2. Kubernetes
 3. Prometheus
-4. Sentry
+4. VictoriaMetrics
+5. Sentry
+
+Alerting:
+1. PagerDuty
+2. StatusCake
+3. Opsgenie
 
 The following integrations will be added soon:
 
@@ -42,6 +48,16 @@ To integrate with Kubernetes, run the command provided by Disto to create a read
 To integrate with Prometheus, fill out the indicated fields.
 
 <img height="70" src="/images/add_prometheus_integration.png" />
+
+Once integrated, to receive alerts from Prometheus, select Prometheus when creating a project and follow the instructions to allow alerts to be sent to that project.
+
+<img height="70" src="/images/prometheus_instructions.png" />
+
+## VictoriaMetrics
+
+To integrate with VictoriaMetrics, fill out the indicated fields.
+
+<img height="70" src="/images/add_victoriametrics_integration.png" />
 
 ## Sentry
 
@@ -100,3 +116,21 @@ Click on "Add Custom Integration" and fill out the indicated fields. These will 
 <img height="70" src="/images/add_custom_integration.png" />
 
 If the fields above are not appropriate for a tool that you would like to integrate, please let us know and we will add functionality to enable integration with that tool.
+
+## PagerDuty
+
+To receive alerts from PagerDuty, select PagerDuty when creating a project and follow the instructions to allow alerts to be sent to that project.
+
+<img height="70" src="/images/pagerduty_instructions.png" />
+
+## StatusCake
+
+To receive alerts from StatusCake, select StatusCake when creating a project and follow the instructions to allow alerts to be sent to that project.
+
+<img height="70" src="/images/statuscake_instructions.png" />
+
+## Opsgenie
+
+To receive alerts from Opsgenie, select Opsgenie when creating a project and follow the instructions to allow alerts to be sent to that project.
+
+<img height="70" src="/images/opsgenie_instructions.png" />
