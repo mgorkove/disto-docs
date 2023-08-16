@@ -25,7 +25,7 @@ Follow the instructions [here](s3) to create an S3 bucket.
 - `cognito-user-pool-id`: name of your AWS Cognito user pool for managing Disto user accounts.
 - `cognito-client-id`: your AWS Cognito client ID
 
-Follow the instructions [here](user-pool) to create a user pool.
+Follow the instructions [here](user-pool) to create a user pool and client ID.
 
 - `sagemaker-endpoint-name`: The name of the endpoint from the deployed Sagemaker LLM.
 - `sagemaker-region-name`: your Sagemaker region name.
@@ -69,3 +69,14 @@ After the script is done, it will output the following:
     ```
 
 You can copy the URL into your browser and start using Disto.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io">
+    The ingress controller may not have been created at the time the rest of the resources were deployed. Run the following command again:
+    ```sh
+    kubectl apply -f deploy.yaml
+    ```
+  </Accordion>
+</AccordionGroup>
