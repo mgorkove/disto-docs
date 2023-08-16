@@ -73,10 +73,12 @@ You can copy the URL into your browser and start using Disto.
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io">
+  <Accordion title="Internal error occurred: failed calling webhook 'validate.nginx.ingress.kubernetes.io'">
     The ingress controller may not have been created at the time the rest of the resources were deployed. Run the following command again:
+    
     ```sh
     kubectl apply -f deploy.yaml
     ```
+
   </Accordion>
 </AccordionGroup>
