@@ -29,28 +29,33 @@
         "introduction",
         {
           "group": "Hosting Options",
-          "pages": [
-            "disto_web",
-            "self_hosting"
-          ]
+          "pages": ["disto_web", "self_hosting"]
         },
         "create_account",
         "integrations"
       ]
     },
     {
-      "group": "Using Disto",
+      "group": "Self-Hosting Disto",
       "pages": [
-        "projects",
-        "issues",
-        "help"
+        {
+          "group": "AWS",
+          "pages": [
+            "self-hosting-aws/deploy",
+            "self-hosting-aws/s3",
+            "self-hosting-aws/user-pool",
+            "self-hosting-aws/sagemaker"
+          ]
+        }
       ]
     },
     {
+      "group": "Using Disto",
+      "pages": ["projects", "issues", "help"]
+    },
+    {
       "group": "API Reference",
-      "pages": [
-        "api-reference/authentication"
-      ]
+      "pages": ["api-reference/authentication"]
     },
     {
       "group": "Endpoints",

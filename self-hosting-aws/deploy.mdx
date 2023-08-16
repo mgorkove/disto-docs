@@ -1,0 +1,71 @@
+---
+title: Deploy Disto
+description: ""
+---
+
+## Introduction
+
+Disto runs in its own Kubernetes cluster in your AWS environment.
+You can run Disto's deploy script to create a Kubernetes cluster and deploy Disto on it.
+
+## Prerequisites
+
+You will need to provide the values for the following arguments:
+
+- `aws-region`: the region you want to deploy Disto to.
+- `aws-access-key-id`: your AWS access key
+- `aws-secret-access-key`: your AWS secret access key
+
+You can follow the instructions [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) to obtain your access key and secret access key, or create new ones.
+
+- `s3-bucket-name`: name of S3 bucket that will store configuration files.
+
+Follow the instructions [here](s3) to create an S3 bucket.
+
+- `cognito-user-pool-id`: name of your AWS Cognito user pool for managing Disto user accounts.
+- `cognito-client-id`: your AWS Cognito client ID
+
+Follow the instructions [here](user-pool) to create a user pool.
+
+- `sagemaker-endpoint-name`: The name of the endpoint from the deployed Sagemaker LLM.
+- `sagemaker-region-name`: your Sagemaker region name.
+
+Follow the instructions [here](sagemaker) to deploy Disto's LLM on Sagemaker.
+
+## Deployment
+
+After you have obtained these values, follow the steps below.
+
+1. Ensure you have the following requirements:
+
+   - Shell environment with `eksctl`, `git`, and `kubectl`.
+
+2. Clone the disto-deploy repository.
+
+   ```sh
+   git clone https://github.com/mgorkove/disto-deploy
+   cd disto-deploy/
+   ```
+
+3. Run the aws-deploy script
+
+   ```sh
+   chmod +x ./aws-deploy.sh
+   ./aws-deploy.sh \
+    --s3-bucket-name "your_s3_bucket_name" \
+    --aws-region "your_aws_region" \
+    --cognito-user-pool-id "your_cognito_user_pool_id" \
+    --cognito-client-id "your_cognito_client_id" \
+    --sagemaker-endpoint-name "your_sagemaker_endpoint_name" \
+    --sagemaker-region-name "your_sagemaker_region_name" \
+    --aws-access-key-id "your_aws_access_key_id" \
+    --aws-secret-access-key "your_aws_secret_access_key"
+   ```
+
+After the script is done, it will output the following:
+
+    ```sh
+    Access services via: <URL>
+    ```
+
+You can copy the URL into your browser and start using Disto.
