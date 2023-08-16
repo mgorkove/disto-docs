@@ -29,7 +29,6 @@ Follow the instructions [here](user-pool) to create a user pool.
 
 - `sagemaker-endpoint-name`: The name of the endpoint from the deployed Sagemaker LLM.
 - `sagemaker-region-name`: your Sagemaker region name.
-- `sagemaker-credentials-profile-name`: The name of the profile in the ~/.aws/credentials or ~/.aws/config files, which has either access keys or role information specified.
 
 Follow the instructions [here](sagemaker) to deploy Disto's LLM on Sagemaker.
 
@@ -59,7 +58,6 @@ After you have obtained these values, follow the steps below.
     --cognito-client-id "your_cognito_client_id" \
     --sagemaker-endpoint-name "your_sagemaker_endpoint_name" \
     --sagemaker-region-name "your_sagemaker_region_name" \
-    --sagemaker-credentials-profile-name "your_sagemaker_credentials_profile_name" \
     --aws-access-key-id "your_aws_access_key_id" \
     --aws-secret-access-key "your_aws_secret_access_key"
    ```
