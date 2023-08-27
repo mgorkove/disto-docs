@@ -1,0 +1,64 @@
+---
+title: Deploy Disto
+description: ""
+---
+
+## Introduction
+
+Disto runs in its own Kubernetes cluster in your GCP environment.
+You can run Disto's deploy script to create a Kubernetes cluster and deploy Disto on it.
+
+## Prerequisites
+
+You will need to provide the values for the following arguments:
+
+- `region`: the GCP region you want to deploy Disto to. Example: us-central1
+
+- `newrelic-account-id`: (optional) your New Relic account ID, if you want to link New Relic to Disto.
+
+If you do not know your New Relic acccount ID, you can follow the instructions [here](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/account-id/) to obtain it.
+
+- `firebase-credentials-path`: path to file with your Firebase credentials.
+
+Follow the instructions [here](firebase) to create a Firebase project and get the credentials file.
+
+## Deployment
+
+After you have obtained these values, follow the steps below.
+
+1. Ensure you have the following requirements:
+
+   - Shell environment with `gcloud`, `git`, and `kubectl`.
+
+2. Clone the disto-deploy repository.
+
+   ```sh
+   git clone https://github.com/mgorkove/disto-deploy
+   cd disto-deploy/gcp
+   ```
+
+3. Run the gcp-deploy script
+
+   ```sh
+   chmod +x ./gcp-deploy.sh
+   ./gcp-deploy.sh \
+    --region "your_gcp_region" \
+    --newrelic-account-id "your_newrelic_account_id" \
+    --firebase-credentials-path "path_to_your_firebase_credentials_file"
+   ```
+
+After the script is done, it will output the following:
+
+    ```sh
+    Access services via: <URL>
+    ```
+
+You can copy the URL into your browser and start using Disto.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="title">
+
+  </Accordion>
+</AccordionGroup>
