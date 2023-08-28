@@ -46,6 +46,10 @@
             "self-hosting-aws/user-pool",
             "self-hosting-aws/sagemaker"
           ]
+        },
+        {
+          "group": "GCP",
+          "pages": ["self-hosting-gcp/deploy", "self-hosting-gcp/firebase"]
         }
       ]
     },
