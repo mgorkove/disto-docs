@@ -14,6 +14,8 @@ You will need to provide the values for the following arguments:
 
 - `region`: the GCP region you want to deploy Disto to. Example: us-central1
 
+- `firestore-region`: the GCP region of the Disto Firestore database. Disto stores project and issue information in Firestore. Supported locations can be found [here](https://cloud.google.com/firestore/docs/locations)
+
 - `newrelic-account-id`: (optional) your New Relic account ID, if you want to link New Relic to Disto.
 
 If you do not know your New Relic acccount ID, you can follow the instructions [here](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/account-id/) to obtain it.
@@ -43,6 +45,7 @@ After you have obtained these values, follow the steps below.
    chmod +x ./gcp-deploy.sh
    ./gcp-deploy.sh \
     --region "your_gcp_region" \
+    --firestore-region "your_firestore_db_region" \
     --newrelic-account-id "your_newrelic_account_id" \
     --firebase-credentials-path "path_to_your_firebase_credentials_file"
    ```
