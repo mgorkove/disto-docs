@@ -55,7 +55,7 @@
     },
     {
       "group": "Using Disto",
-      "pages": ["projects", "issues", "help"]
+      "pages": ["projects", "issues", "collaboration", "help"]
     },
     {
       "group": "API Reference",

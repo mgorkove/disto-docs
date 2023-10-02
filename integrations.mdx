@@ -16,6 +16,7 @@ Disto currently integrates with the following common tools:
 7. Datadog
 8. Loggly
 9. Google Cloud
+10. AWS
 
 Alerting:
 
@@ -118,10 +119,16 @@ To integrate with Loggly, add your Loggly subdomain and create an API key as ind
 
 ## Google Cloud
 
-To integrate with Google Cloud, create a service account and create and upload the private key as indicated below. 
+To integrate with Google Cloud, create a service account and create and upload the private key to Disto as indicated below. 
 
 <img height="70" src="/images/gcp1.png" />
 <img height="70" src="/images/gcp2.png" />
+
+## AWS
+
+To integrate with AWS, create a CloudFormation stack with a read only IAM role and upload the Role ARN to Disto as indicated below. 
+
+<img height="70" src="/images/aws1.png" />
 
 ## PagerDuty
 
